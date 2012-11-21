@@ -6,13 +6,24 @@ StackTest.prototype.testSimpleStack = function() {
 };
 
 StackTest.prototype.testStackPush = function() {
+    //Create a new stack
     var stack = new Kash.cormen.datastructures.Stack();
 
+    //No element; should throw exception
     assertException(
         function(){
-            stack.push(); //No element; should throw exception
+            stack.push();
         }
     );
+
+    //Push an element into the stack
+    stack.push(1);
+
+    //Check that the stack is now not empty
+    assertFalse(stack.isEmpty());
+
+    //Pop the element and make sure it is equal to what we pushed
+    assertEquals(1, stack.pop());
 };
 
 StackTest.prototype.testStackPop = function(){
